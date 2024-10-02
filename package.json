@@ -6,7 +6,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
+		"type-check": "tsc",
 		"lint": "pnpm biome check .",
+		"check": "pnpm run '/(lint|type-check)/'",
 		"preview": "vite preview"
 	},
 	"dependencies": {
