@@ -9,7 +9,8 @@
 		"type-check": "tsc",
 		"lint": "pnpm biome check .",
 		"check": "pnpm run '/(lint|type-check)/'",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@aws-amplify/ui-react": "^6.2.0",
@@ -28,6 +29,7 @@
 		"aws-cdk-lib": "^2.138.0",
 		"constructs": "^10.3.0",
 		"esbuild": "^0.20.2",
+		"husky": "^9.1.6",
 		"tsx": "^4.7.2",
 		"typescript": "^5.4.5",
 		"vite": "^5.2.0"
