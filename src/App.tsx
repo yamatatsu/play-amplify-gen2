@@ -14,9 +14,13 @@ function App() {
 		return () => res.unsubscribe();
 	}, []);
 
-	function createTodo() {
+	const createTodo = () => {
 		client.models.Todo.create({ content: window.prompt("Todo content") });
-	}
+	};
+
+	const deleteTodo = (id: string) => {
+		client.models.Todo.delete({ id });
+	};
 
 	return (
 		<main>
@@ -26,7 +30,12 @@ function App() {
 			</button>
 			<ul>
 				{todos.map((todo) => (
-					<li key={todo.id}>{todo.content}</li>
+					<div key={todo.id}>
+						<li>{todo.content}</li>
+						<button type="button" onClick={() => deleteTodo(todo.id)}>
+							delete
+						</button>
+					</div>
 				))}
 			</ul>
 			<div>
