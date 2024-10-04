@@ -1,8 +1,12 @@
-import { Authenticator } from "@aws-amplify/ui-react";
+import { Authenticator, translations } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
+import { I18n } from "aws-amplify/utils";
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
+
+I18n.putVocabularies(translations);
+I18n.setLanguage("ja");
 
 const client = generateClient<Schema>();
 
@@ -25,7 +29,7 @@ function App() {
 	};
 
 	return (
-		<Authenticator>
+		<Authenticator hideSignUp>
 			{({ signOut, user }) => (
 				<main>
 					<h1>{user?.signInDetails?.loginId}'s todos</h1>
